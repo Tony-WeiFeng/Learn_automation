@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Enrollment" errors="0" tests="1" failures="1" time="0" timestamp="2015-07-21T17:32:50">
+  <testcase classname="Enrollment" name="Enroll tony1 as an instructor in course Java" time="NaN"><failure type="expect" message="Error: Index out of bound. Trying to access element at index: 0, but there are only 0 elements that match locator By.cssSelector(&amp;quot;[bb-peek-sref=\&amp;quot;enroll-users\&amp;quot;]&amp;quot;)">Error: Index out of bound. Trying to access element at index: 0, but there are only 0 elements that match locator By.cssSelector(&amp;quot;[bb-peek-sref=\&amp;quot;enroll-users\&amp;quot;]&amp;quot;)
+    at /usr/local/lib/node_modules/protractor/lib/element.js:257:15
+    at [object Object].promise.ControlFlow.runInFrame_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1877:20)
+    at [object Object].promise.Callback_.goog.defineClass.notify (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:2464:25)
+    at [object Object].promise.Promise.notify_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:563:12)
+    at Array.forEach (native)
+    at Object.goog.array.forEach (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/array/array.js:203:43)
+    at [object Object].promise.Promise.notifyAll_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:552:16)
+    at goog.async.run.processWorkQueue (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:125:21)
+    at runMicrotasksCallback (node.js:337:7)
+    at process._tickCallback (node.js:355:11)
+Error
+    at [object Object].ElementArrayFinder.applyAction_ (/usr/local/lib/node_modules/protractor/lib/element.js:403:21)
+    at [object Object].self.(anonymous function) [as click] (/usr/local/lib/node_modules/protractor/lib/element.js:76:19)
+    at [object Object].self.(anonymous function) [as click] (/usr/local/lib/node_modules/protractor/lib/element.js:733:11)
+    at [object Object].&amp;lt;anonymous&amp;gt; (/Users/tfeng/Desktop/protractor/enrollment.js:56:70)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd/index.js:94:14
+    at [object Object].promise.ControlFlow.runInFrame_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1877:20)
+    at [object Object].promise.ControlFlow.runEventLoop_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:1755:8)
+    at [object Object].&amp;lt;anonymous&amp;gt; (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver/promise.js:2056:12)
+    at goog.async.run.processWorkQueue (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:125:21)
+From: Task: Asynchronous test function: it()
+    at [object Object].&amp;lt;anonymous&amp;gt; (/usr/local/lib/node_modules/protractor/node_modules/jasminewd/index.js:93:33)
+    at [object Object].&amp;lt;anonymous&amp;gt; (/usr/local/lib/node_modules/protractor/node_modules/minijasminenode/lib/async-callback.js:45:37)
+    at [object Object].jasmine.Block.execute (/usr/local/lib/node_modules/protractor/node_modules/minijasminenode/lib/jasmine-1.3.1.js:1174:17)
+    at [object Object].jasmine.Queue.next_ (/usr/local/lib/node_modules/protractor/node_modules/minijasminenode/lib/jasmine-1.3.1.js:2209:31)
+    at [object Object]._onTimeout (/usr/local/lib/node_modules/protractor/node_modules/minijasminenode/lib/jasmine-1.3.1.js:2199:18)
+    at Timer.listOnTimeout (timers.js:110:15)==== async task ====
+Error
+    at [object Object].&amp;lt;anonymous&amp;gt; (/Users/tfeng/Desktop/protractor/enrollment.js:16:5)
+    at [object Object].jasmine.Env.describe_ (/usr/local/lib/node_modules/protractor/node_modules/minijasminenode/lib/jasmine-1.3.1.js:913:21)
+    at [object Object].jasmine.Env.describe (/usr/local/lib/node_modules/protractor/node_modules/minijasminenode/lib/jasmine-1.3.1.js:898:15)
+    at describe (/usr/local/lib/node_modules/protractor/node_modules/minijasminenode/lib/jasmine-1.3.1.js:658:27)
+    at Object.&amp;lt;anonymous&amp;gt; (/Users/tfeng/Desktop/protractor/enrollment.js:5:1)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)</failure></testcase>
+</testsuite>
+</testsuites>

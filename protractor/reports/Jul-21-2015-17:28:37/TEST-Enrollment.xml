@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Enrollment" errors="0" tests="1" failures="1" time="0" timestamp="2015-07-21T17:28:57">
+  <testcase classname="Enrollment" name="Enroll tony1 as an instructor in course Java" time="NaN"><failure type="expect" message="Error while waiting for Protractor to sync with the page: &amp;quot;angular could not be found on the window&amp;quot;">Error while waiting for Protractor to sync with the page: &amp;quot;angular could not be found on the window&amp;quot;</failure></testcase>
+</testsuite>
+</testsuites>
