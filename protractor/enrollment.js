@@ -18,16 +18,17 @@ describe('Enrollment', function() {
         element(by.id('password')).sendKeys('changeme');
 
         element(by.id('entry-login')).click();
-        browser.sleep(3000);
+        browser.sleep(5000);
 
         //element.all(by.css('.link-text.ng-scope.ng-binding')).get(7).click();
         element(by.repeater('tool in base.tools').row(8)).click();
-        browser.sleep(2000);
+        browser.sleep(1000);
 
         browser.switchTo().frame(browser.findElement(by.tagName('iframe')));
         element(by.id('nav_list_courses')).click();
         browser.sleep(2000);
 
+        //Option selection
         var select = element(by.id('courseInfoSearchKeyString'));
         select.$('[value="CourseId"]').click();
 
@@ -52,13 +53,29 @@ describe('Enrollment', function() {
         //Confirm to Ultra
         //element(by.css('[ng-click="conversionStatusBarController.backToClassic()"]')).click();
         element(by.css('[analytics-id="course.outline.roster.name"]')).click();
+        
+        //seems after click on the add button, browser need sleep a moment, otherwise the "Roster" page will not be fully opened
         browser.sleep(500);
-        element.all(by.css('[bb-peek-sref="enroll-users"]')).first().click();
 
+        element(by.css('[title="Add People"]')).click();
+        element.all(by.css('[bb-peek-sref="enroll-users"]')).get(0).click();
+        browser.sleep(500);
+        //element(by.cssContainingText('course.roster.enroll.enrollPeople','Enroll People')).click();   //seems cssContainingText does not work well here.
 
-        browser.sleep(5000);
+        //Search peopel in Enroll People peek panel
+        element(by.model('courseRosterEnroll.searchValue')).sendKeys('tony1');
+        //element(by.css('[title="Search"]')).click();
 
+        element(by.css('[ng-click="courseRosterEnroll.searchButtonClicked()"]')).click();
+        browser.sleep(2000);
 
+        element(by.cssContainingText('.user-handle','tony1')).click();
+
+        //Select user role as Instructor 
+        var select = element(by.model('uiUser.role'));
+        select.$('[value="4"]').click();
+
+        element(by.cssContainingText('.ng-binding','Save')).click();
 
         //element(by.css('.modal-footer-button.success.ng-scope')).click();
 
