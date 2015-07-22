@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Enrollment" errors="0" tests="1" failures="1" time="0" timestamp="2015-07-22T16:10:28">
-  <testcase classname="Enrollment" name="Enroll tony1 as an instructor in course Java" time="NaN"><failure type="expect" message="timeout: timed out after 30000 msec waiting for spec to complete">timeout: timed out after 30000 msec waiting for spec to complete</failure></testcase>
-</testsuite>
-</testsuites>
