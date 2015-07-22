@@ -6,7 +6,7 @@
 exports.config = {
 	seleniumAddress: 'http://localhost:4444/wd/hub',
 	//specs: ['addCourses.js','addUser.js','enroll.js'],
-	//specs: ['addCourses.js'],
+	//specs: ['courseConvert.js'],
 	specs: ['enrollment.js'],
 
     
@@ -43,7 +43,7 @@ exports.config = {
 
  	jasmineNodeOpts: {
 		showColors: true,
-		defaultTimeoutInterval: 30000,
+		defaultTimeoutInterval: 120000,
 		isVerbose: true,
 		includeStackTrace: true
 	}

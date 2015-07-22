@@ -14,13 +14,15 @@ describe('Course Convert', function() {
         browser.get(test_server);
     });
 
-    it('Convert Course from Classic to Ultra', function() {
-        element(by.id('user_id')).sendKeys('administrator');
-        element(by.id('password')).sendKeys('changeme');
+    function loginUltra(userName,password) {
+        element(by.id('user_id')).sendKeys(userName);
+        element(by.id('password')).sendKeys(password);
 
         element(by.id('entry-login')).click();
         browser.sleep(5000);
+    }
 
+    function adminSearchCourseById(courseId) {
         //element.all(by.css('.link-text.ng-scope.ng-binding')).get(7).click();
         element(by.repeater('tool in base.tools').row(8)).click();
         browser.sleep(2000);
@@ -35,43 +37,51 @@ describe('Course Convert', function() {
         var select = element(by.name('courseInfoSearchOperatorString'));
         select.$('[value="Equals"]').click();
 
-        element(by.id('courseInfoSearchText')).sendKeys('J00001',protractor.Key.ENTER);
+        element(by.id('courseInfoSearchText')).sendKeys(courseId,protractor.Key.ENTER);
         //element(by.css('.button-4')).click();
         //element(by.partialLinkText("J001")).click();
         browser.sleep(2000);
+    }
+
+    it('Convert Course from Classic to Ultra', function() {
+
+        var userName = 'administrator';
+        var password = 'changeme';
+        var courseId = 't001';
+
+        loginUltra(userName,password);
+        adminSearchCourseById(courseId);
 
         //console.log(element(by.linkText('J00001')));
-        element(by.linkText('J00001')).click();
+        element(by.linkText(courseId)).click();
 
         //Waiting for open classic course
         browser.sleep(5000);
 
 
         browser.switchTo().defaultContent();
-        browser.switchTo().frame(1);
+        //browser.switchTo().frame(1);
         //browser.switchTo().frame(browser.findElement(by.tagName('iframe')));
 
-        browser.sleep(2000);
+        //element(by.cssContainingText('.ng-scope','OK')).click();
+        element(by.name('modal-footer')).click();
+        browser.sleep(1000);
+
+        //element(by.cssContainingText('.ng-scope','Use the Ultra Course')).click();
+        element(by.css('[ng-click="conversionStatusBarController.useTheNewExperience()"]')).click();
+        
 
         //expect(element(by.id('ultraconversionbutton')).isPresent()).toBe(true);
 
-        if (element(by.id('okTryNewLearn')).isPresent()) {
-        //if (element(by.linkText('Maybe Later')).isPresent()) {
-            //tryNewButton.click();
-            element(by.id('okTryNewLearn')).click();
-            //alert("1");
-        }
-        else {
-            element(by.id('ultraconversionbutton')).click();
-            browser.sleep(2000);
-            element(by.id('okTryNewLearn')).click();
-        }
+
 
         /**
         element(by.id('ultraconversionbutton')).click();
         element(by.id('okTryNewLearn')).click();
         **/
-        browser.sleep(2000);
+        browser.sleep(1000);
+
+
 
 
         //element(by.css('.modal-footer-button.success.ng-scope')).click();
