@@ -65,7 +65,7 @@ describe('Course Convert', function() {
 
         //element(by.cssContainingText('.ng-scope','OK')).click();
         element(by.name('modal-footer')).click();
-        browser.sleep(1000);
+        browser.sleep(2000);
 
         //element(by.cssContainingText('.ng-scope','Use the Ultra Course')).click();
         element(by.css('[ng-click="conversionStatusBarController.useTheNewExperience()"]')).click();
