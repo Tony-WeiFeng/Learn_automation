@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Course Convert" errors="0" tests="1" failures="0" time="58.854" timestamp="2015-07-28T01:48:28">
-  <testcase classname="Course Convert" name="Convert Course from Classic to Ultra" time="58.853"></testcase>
-</testsuite>
-</testsuites>

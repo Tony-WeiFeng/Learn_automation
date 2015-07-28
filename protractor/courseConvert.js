@@ -74,8 +74,8 @@ describe('Course Convert', function() {
         browser.sleep(5000);
         //Log out
         element(by.repeater('tool in base.tools').row(9)).click();
-        browser.sleep(2000);
-        
+        browser.sleep(5000);
+
         browser.get('https://localhost');
         //Re-login
         loginUltra(userName,password);

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Creadte Course" errors="0" tests="1" failures="0" time="0" timestamp="2015-07-28T01:48:06">
-  <testcase classname="Creadte Course" name="Create a Course Java (J00001)" time="NaN"></testcase>
-</testsuite>
-</testsuites>

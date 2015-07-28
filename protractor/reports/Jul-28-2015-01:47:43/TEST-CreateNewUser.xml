@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Create New User" errors="0" tests="1" failures="0" time="22.293" timestamp="2015-07-28T01:48:06">
-  <testcase classname="Create New User" name="Create User" time="22.293"></testcase>
-</testsuite>
-</testsuites>
