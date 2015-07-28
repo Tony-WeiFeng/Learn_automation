@@ -60,7 +60,7 @@ describe('Test Cases for Discussion', function() {
 
     });
 
-    // ElementNotVisibleError in Line 86
+    // TBD: ElementNotVisibleError in Line 86
     it('Edit an existed Discussion', function(){
         var courseID = 'Rosaline_Course6';
         var oldTitle = 'Automation title';
@@ -79,18 +79,71 @@ describe('Test Cases for Discussion', function() {
         clickDiscussionName(oldTitle);
         browser.sleep(3000);
         var titleTextbox = element(by.css('[ng-click="panelHeader.onEditMode()"]'));
-        titleTextbox.click();
+        // titleTextbox.click();
         // titleTextbox.clear();
         browser.sleep(2000);
         // titleTextbox.sendKeys(newTitle);
-        titleTextbox.sendKeys(protractor.Key.ENTER);
-        browser.sleep(30000);
+        // titleTextbox.sendKeys(protractor.Key.ENTER);
+        // protractor.forceValue(titleTextbox, newTitle);
+        titleTextbox.innerHTML = "LALALA";
+        browser.sleep(3000);
         // + protractor.Key.CONTROL
 
         // Close the discussion details panel.
         element(by.css('.bb-close')).click();
 
     });
+
+    it('Add comment and reply for an existed Discussion', function(){
+        var courseID = 'Rosaline_Course6';
+        var title = 'Automation title';
+        var comment = 'Automation Comments';
+        var reply = 'Automation add Reply';
+
+        // Navigate to discussion tab in course outline.
+        element(by.partialLinkText("Courses")).click();
+        browser.sleep(3000);
+        element(by.cssContainingText('.course-id.ng-scope', courseID)).click();
+        element(by.css('[title="Participation"]')).click();
+        browser.sleep(3000);
+
+        // Click the discussion title to open the discussion panel and edit.
+        // editDiscussion(oldTitle, newTitle, content, true, false);
+        clickDiscussionName(title);
+        browser.sleep(3000);
+        
+        // Add comments
+        addComment(comment);       
+
+        // Add Reply
+        addReplyByComment(comment, reply);
+
+        // Assert.
+        var latestComment = element.all(by.css('[message="comment"]')).all(by.css('[name="comment-field"]')).first();
+        expect(latestComment.getText()).toBe(comment);
+        var latestReply = element.all(by.css('[message="comment"]')).all(by.css('[name="comment-field"]')).get(1);
+        expect(latestReply.getText()).toBe(reply);
+    });
+
+    function addComment(comment) {
+        var commentElement = element.all(by.css('[aria-label="Comment"]')).last();
+        commentElement.clear();
+        commentElement.sendKeys(comment);
+        
+        var saveButton = element.all(by.cssContainingText('[aria-disabled="false"]', 'Save')).last();
+        saveButton.click();
+
+        browser.sleep(3000);
+    }
+
+    function addReplyByComment(comment, newComment) {
+        var replyTextBox = browser.driver.findElement(by.xpath("//div[div[div[bb-message[div[div[div[ng-switch[div[div[div[p[text()='" + comment + "']]]]]]]]]]]]//div[@aria-label='Reply']"));
+        replyTextBox.clear();
+        replyTextBox.sendKeys(newComment);
+        var addReplyButton = element(by.cssContainingText('[aria-disabled="false"]','Add Reply'));
+        addReplyButton.click();
+        browser.sleep(2000);
+    }
 
     // Delete discussion with title, if the title name duplicates, delete the first one. 
     // Delete discussion without confirmation dialog.
