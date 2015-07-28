@@ -9,9 +9,10 @@ describe('Course Convert', function() {
 
     beforeEach(function() {
         browser.ignoreSynchronization = true;
-        browser.driver.manage().deleteAllCookies();
-        browser.sleep(3000)
+        // browser.driver.manage().deleteAllCookies();
+        // browser.sleep(3000);
         browser.get(test_server);
+        browser.sleep(1000);
     });
 
     function loginUltra(userName,password) {
@@ -37,6 +38,7 @@ describe('Course Convert', function() {
         var select = element(by.name('courseInfoSearchOperatorString'));
         select.$('[value="Equals"]').click();
 
+        element(by.id('courseInfoSearchText')).clear();
         element(by.id('courseInfoSearchText')).sendKeys(courseId,protractor.Key.ENTER);
         //element(by.css('.button-4')).click();
         //element(by.partialLinkText("J001")).click();
@@ -47,7 +49,7 @@ describe('Course Convert', function() {
 
         var userName = 'administrator';
         var password = 'changeme';
-        var courseId = 't001';
+        var courseId = 'J00001';
 
         loginUltra(userName,password);
         adminSearchCourseById(courseId);
@@ -59,18 +61,48 @@ describe('Course Convert', function() {
         browser.sleep(5000);
 
 
+
         browser.switchTo().defaultContent();
-        //browser.switchTo().frame(1);
+        browser.switchTo().frame(1);
         //browser.switchTo().frame(browser.findElement(by.tagName('iframe')));
 
         //element(by.cssContainingText('.ng-scope','OK')).click();
-        element(by.name('modal-footer')).click();
+        //element(by.name('modal-footer')).click();
+        
+        //Convert course
+        element(by.id('okTryNewLearn')).click();
+        browser.sleep(5000);
+        //Log out
+        element(by.repeater('tool in base.tools').row(9)).click();
+        browser.sleep(2000);
+        
+        browser.get('https://localhost');
+        //Re-login
+        loginUltra(userName,password);
+        //Search and open the course again 
+        adminSearchCourseById(courseId);
+        browser.sleep(5000);       
+        element(by.linkText(courseId)).click();
+        browser.switchTo().defaultContent();
         browser.sleep(2000);
 
+        //Click Ok button on Attention dialog
+        element(by.name('modal-footer')).click();
+        browser.sleep(2000);
         //element(by.cssContainingText('.ng-scope','Use the Ultra Course')).click();
         element(by.css('[ng-click="conversionStatusBarController.useTheNewExperience()"]')).click();
-        
+        browser.sleep(1000);
 
+        //close course
+        element(by.css('[class="bb-close"]')).click();
+        browser.sleep(2000);
+        
+        //back to stream page
+        element(by.css('[class="button round secondary icon admin-back-button"]')).click();
+        browser.sleep(2000);
+        //log out
+        element(by.repeater('tool in base.tools').row(9)).click();
+        browser.sleep(2000);
         //expect(element(by.id('ultraconversionbutton')).isPresent()).toBe(true);
 
 
@@ -79,7 +111,7 @@ describe('Course Convert', function() {
         element(by.id('ultraconversionbutton')).click();
         element(by.id('okTryNewLearn')).click();
         **/
-        browser.sleep(1000);
+        //browser.sleep(2000);
 
 
 

@@ -5,9 +5,11 @@
 // conf.js
 exports.config = {
 	seleniumAddress: 'http://localhost:4444/wd/hub',
-	//specs: ['addCourses.js','addUser.js','enroll.js'],
+	specs: ['addCourses.js','addUser.js','courseConvert.js','enrollment.js'],
+    //specs: ['addCourses.js','courseConvert.js'],
 	//specs: ['courseConvert.js'],
-	specs: ['enrollment.js'],
+    //specs: ['enrollment.js'],
+    //specs: ['addCourses.js'],
 
     
     // capabilities: {

@@ -8,9 +8,10 @@ describe('Enrollment', function() {
 
     beforeEach(function() {
         browser.ignoreSynchronization = true;
-        browser.driver.manage().deleteAllCookies();
-        browser.sleep(3000)
+        // browser.driver.manage().deleteAllCookies();
+        // browser.sleep(5000);
         browser.get(test_server);
+        browser.sleep(1000);
     });
 
     it('Enroll tony1 as an instructor in course Java', function() {
@@ -59,7 +60,7 @@ describe('Enrollment', function() {
 
         element(by.css('[title="Add People"]')).click();
         element.all(by.css('[bb-peek-sref="enroll-users"]')).get(0).click();
-        browser.sleep(500);
+        browser.sleep(1000);
         //element(by.cssContainingText('course.roster.enroll.enrollPeople','Enroll People')).click();   //seems cssContainingText does not work well here.
 
         //Search peopel in Enroll People peek panel

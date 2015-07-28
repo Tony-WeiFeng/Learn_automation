@@ -8,9 +8,10 @@ describe('Create New User', function() {
 
     beforeEach(function() {
         browser.ignoreSynchronization = true;
-        browser.driver.manage().deleteAllCookies();
-        browser.sleep(3000)
+        // browser.driver.manage().deleteAllCookies();
+        // browser.sleep(5000);
         browser.get(test_server);
+        browser.sleep(1000);
     });
     function createUser(fristName,lastName,email,userName,verifyPassword,password_input) {
         element(by.partialLinkText("Create User")).click();
@@ -56,6 +57,15 @@ describe('Create New User', function() {
         // createUser('Bin','Zhang','bin.zhang@blackboard.com','bin','changeme','changeme');
         // createUser('Ivan','Liu','ivan.liu@blackboard.com','ivan','changeme','changeme');
 
+
+        //back to de default
+        browser.switchTo().defaultContent();
+        //back to stream page
+        element(by.css('[class="button round secondary icon admin-back-button"]')).click();
+        browser.sleep(2000);
+        //log out
+        element(by.repeater('tool in base.tools').row(9)).click();
+        browser.sleep(2000);
 
 
 

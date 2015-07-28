@@ -9,6 +9,7 @@ describe('Creadte Course', function() {
         //isAngularSite(false);
         browser.driver.manage().deleteAllCookies();
         browser.get(test_server);
+        browser.sleep(1000);
     });
 
     // afterEach(function() {
@@ -30,10 +31,22 @@ describe('Creadte Course', function() {
         element(by.partialLinkText("Create Course")).click();
         element.all(by.css('.actionMenuItem')).get(0).click();
 
+        browser.sleep(1000);
+
         element(by.name('courseName')).sendKeys('Java');
         element(by.name('courseId')).sendKeys('J00001');
         element(by.id('available_no')).click();
         element(by.name('bottom_Submit')).click();
+
+        //back to de default
+        browser.switchTo().defaultContent();
+        //back to stream page
+        element(by.css('[class="button round secondary icon admin-back-button"]')).click();
+        browser.sleep(2000);
+        //log out
+        element(by.repeater('tool in base.tools').row(9)).click();
+        browser.sleep(2000);
+
 
         browser.getAllWindowHandles().then(function (handles) {
             browser.switchTo().window(handles[0]);

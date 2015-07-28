@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Enrollment" errors="0" tests="1" failures="0" time="19.21" timestamp="2015-07-28T01:49:27">
+  <testcase classname="Enrollment" name="Enroll tony1 as an instructor in course Java" time="19.21"></testcase>
+</testsuite>
+</testsuites>
