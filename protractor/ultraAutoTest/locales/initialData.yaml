@@ -1,0 +1,8 @@
+Bob:
+  title: "BB user"
+  firstName: Bob
+  lastName: Liu
+  email: bob.liu@blackboard.com
+  username: boliu
+  password_input: changeme
+  verifyPassword: changeme
