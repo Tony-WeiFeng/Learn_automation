@@ -1,0 +1,79 @@
+login:
+  userId:
+    type: id
+    locator: "user_id"
+    sendKeys: "administrator"
+    action: "sendKeys"
+  password:
+    type: "id"
+    locator: "password"
+    sendKeys: "changeme"
+    action: "sendKeys"
+  loginButton:
+    type: "id"
+    locator: "entry-login"
+    action: "click"
+homePage:
+  adminTools:
+    switch:
+      type: "css"
+      locator: '[analytics-id="base.nav.admin"]'
+      action: "click"
+    iframe:
+      type: xpath
+      locator: '//*[@id=\"body-content\"]/div[1]/iframe'
+      action: switchToIframe
+    users:
+      switch:
+        type: id
+        locator: nav_list_users
+        action: click
+      create:
+        switch:
+          type: linkText
+          locator: "Create User"
+          action: click
+        page:
+          title:
+            type: id
+            locator: title
+            action: sendKeys
+            sendKeys: null
+          firstName:
+            type: name
+            locator: firseName
+            action: sendKeys
+            sendKeys:
+          lastName:
+            type: name
+            locator: lastName
+            action: sendKeys
+            sendKeys:
+          email:
+            type: name
+            locator: email
+            action: sendKeys
+            sendKeys:
+          userName:
+            type: name
+            locator: userName
+            action: sendKeys
+            sendKeys:
+          password_input:
+            type: name
+            locator: password_input
+            action: sendKeys
+            sendKeys:
+          verifyPassword:
+            type: name
+            locator: verifyPassword
+            action: sendKeys
+            sendKeys:
+          button:
+            type: name
+            locator: bottom_Submit
+            action: click
+      batchCreate:
+        
+
+
