@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-//this is a test comment
-=======
 describe('Safe click', function() {
 
   function safeClick(elementLocator) {
