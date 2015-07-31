@@ -29,7 +29,6 @@ describe('Protractor Demo App', function() {
         element(by.cssContainingText('.ng-binding.ng-isolate-scope', courseName)).click();
 
         clickOneDriveButton();
-        // browser.sleep(50000);
 
         // One drive login page is a new tab, new html page. And it's not anglar js   
         browser.ignoreSynchronization = true;             
