@@ -1,6 +1,5 @@
 /**
- * Created by rzeng on 7/23/15.
- * This page includes 2 test cases.
+ * Created by rzeng on 7/26/15.
  */
 
 describe('Test Cases for Discussion', function() {

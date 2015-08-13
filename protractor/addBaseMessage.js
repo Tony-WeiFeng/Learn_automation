@@ -31,6 +31,7 @@ describe('Protractor Demo App', function() {
         var sendButton = element(by.partialButtonText('Send'));
         var searchRecipient = "Liu";
         var recipient = 'benf Liu';
+        var message = 'Automation Messages';
 
         recipientInput.clear();
         recipientInput.sendKeys(searchRecipient);
@@ -40,20 +41,19 @@ describe('Protractor Demo App', function() {
 
         // Input the Message
         messageTextarea.clear();
-        messageTextarea.sendKeys("Automation Messages");
+        messageTextarea.sendKeys(message);
 
         // Click Send button
         sendButton.click();
         browser.sleep(2000);
 
         // Assert
-        var newMessageUsername = element(by.css('ng-isolate-scope usernames'));
-        var newMessageContent = element(by.css('preview ng-binding'));
-        newMessageUsername.getText().then(function(val) {
-            console.log("*******" + val);});
 
-        newMessageContent.getText().then(function(val) {
-            console.log("*******" + val);});
+        var newMessageUsername = browser.driver.findElement(by.xpath('//div[div[div[div[div[a[text()=\'Ben_Test_A\']]]]]]//bb-usernames'));
+        var newMessageContent = browser.driver.findElement(by.xpath('//div[div[div[div[div[a[text()=\'Ben_Test_A\']]]]]]//div[@class=\'preview ng-binding\']'));
+
+        expect(newMessageUsername.getText()).toEqual("Blackboard Administrator and " + recipient);
+        expect(newMessageContent.getText()).toEqual(message);
 
        browser.sleep(3000);
     });
